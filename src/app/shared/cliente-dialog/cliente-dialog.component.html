@@ -1,0 +1,21 @@
+<h1 *ngIf="isChange" mat-dialog-title>Alterar Cliente</h1>
+<h1 *ngIf="!isChange" mat-dialog-title>Cadastrar Cliente</h1>
+<div mat-dialog-content>
+  <mat-form-field>
+    <mat-label>CPF</mat-label>
+    <input matInput [(ngModel)]="data.cpf">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Nome</mat-label>
+    <input matInput [(ngModel)]="data.nome">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>E-mail</mat-label>
+    <input matInput [(ngModel)]="data.email">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Cancelar</button>
+  <button *ngIf="isChange" mat-button color="primary" [mat-dialog-close]="data" cdkFocusInitial>Alterar</button>
+  <button *ngIf="!isChange" mat-button color="primary" [mat-dialog-close]="data" cdkFocusInitial>Cadastrar</button>
+</div>
